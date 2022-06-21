@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import "./Signin.css";
-import { FaGoogle, FaFacebook, FaApple } from "react-icons/fa";
+import { FaGoogle, FaFacebook, FaApple, FaGithub } from "react-icons/fa";
 const Signin = () => {
-  const { facebookSignIn, googleSignIn, signIn, user } = UserAuth();
+  const { githubSignIn, facebookSignIn, googleSignIn, signIn, user } =
+    UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,6 +27,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       await googleSignIn();
+      // navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -35,6 +37,17 @@ const Signin = () => {
     e.preventDefault();
     try {
       await facebookSignIn();
+      // navigate("/account");
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
+  };
+  const handleGitSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await githubSignIn();
+      // navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -81,7 +94,7 @@ const Signin = () => {
       <div className="div">
         <FaGoogle onClick={handleGoogleSignIn} size={35} />
         <FaFacebook onClick={handleFbSignIn} size={35} />
-        <FaApple size={35} />
+        <FaGithub onClick={handleGitSignIn} size={35} />
       </div>
     </div>
   );

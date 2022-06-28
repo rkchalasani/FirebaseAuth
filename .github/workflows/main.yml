@@ -5,7 +5,11 @@ jobs:
        runs-on: ubuntu-latest
        steps:
           - name: Checkout
-            uses: actions/checkout@main
+            uses: actions/checkout@v2.3.4
+            with: 
+               repository: 'rkchalasani/FirebaseAuth'
+               ref: 'main'
+               
           - name: Cypress.io
             uses: cypress-io/github-action@v4.1.1
             with: 

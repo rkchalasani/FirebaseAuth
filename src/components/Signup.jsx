@@ -27,7 +27,7 @@ const Signup = () => {
         <h1 className="text-2xl font-bold py-2">Sign up for a free account</h1>
         <p className="py-2">
           Already have an account yet?{" "}
-          <Link to="/" className="underline">
+          <Link id="signin" to="/" className="underline">
             Sign in.
           </Link>
         </p>
@@ -36,6 +36,7 @@ const Signup = () => {
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium">Email Address</label>
           <input
+          id="signupemail"
             onChange={(e) => setEmail(e.target.value)}
             className="border p-3"
             type="email"
@@ -44,12 +45,13 @@ const Signup = () => {
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium">Password</label>
           <input
+          id="signuppass"
             onChange={(e) => setPassword(e.target.value)}
             className="border p-3"
             type="password"
           />
         </div>
-        <button className="border border-black bg-black hover:bg-white hover:text-black w-full p-4 my-2 text-white">
+        <button id="signup" className="border border-black bg-black hover:bg-white hover:text-black w-full p-4 my-2 text-white">
           Sign Up
         </button>
       </form>

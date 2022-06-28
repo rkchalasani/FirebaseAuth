@@ -5,7 +5,7 @@ jobs:
        runs-on: ubuntu-latest
        steps:
           - name: Checkout
-            uses: actions/checkout@v2.3.4
+            uses: actions/checkout@v2
             with: 
                repository: 'rkchalasani/FirebaseAuth'
                ref: 'Cypress'
@@ -15,4 +15,17 @@ jobs:
             with: 
                 install: npm install
                 start: npm start
+                
+          - name: Artifacts        
+          - uses: actions/upload-artifact@v2
+            if: failure()
+            with:
+               name: cypress-screenshots
+               path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+          - uses: actions/upload-artifact@v2
+            if: always()
+            with:
+              name: cypress-videos
+              path: cypress/videos      
                

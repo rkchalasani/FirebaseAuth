@@ -5,7 +5,7 @@ jobs:
        runs-on: ubuntu-latest
        steps:
           - name: Checkout
-            uses: actions/checkout@v2
+            uses: actions/checkout@v2.4.2
             with: 
                repository: 'rkchalasani/FirebaseAuth'
                ref: 'Cypress'
@@ -14,9 +14,7 @@ jobs:
             uses: cypress-io/github-action@v4.1.1
             with: 
                 install: npm install
-                start: npm start
-                
-          - name: Artifacts        
+                start: npm start     
           - uses: actions/upload-artifact@v2
             if: failure()
             with:
